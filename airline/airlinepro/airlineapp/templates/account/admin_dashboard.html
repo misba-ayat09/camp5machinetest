@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - FlyWithMe</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <!-- Header -->
+    <div class="header">
+        <h2>Welcome Admin!</h2>
+        <a href="{% url 'logout' %}" class="logout-btn">Logout</a>
+    </div>
+
+    <!-- Dashboard Container -->
+    <div class="dashboard-container">
+        <h2>Admin Dashboard</h2>
+
+        <div class="dashboard-buttons">
+            <a href="{% url 'flight_list' %}">
+                <img src="{% static 'images/list.avif' %}" alt="List Flights">
+                <p>List All Flights</p>
+            </a>
+            <a href="{% url 'flight_search' %}">
+                <img src="{% static 'images/serach.png' %}" alt="Search Flight">
+                <p>Search Flight by ID</p>
+            </a>
+            <a href="{% url 'flight_add' %}">
+                <img src="{% static 'images/add.jpg' %}" alt="Add Flight">
+                <p>Add Flight</p>
+            </a>
+            <a href="{% url 'flight_list' %}">
+                <img src="{% static 'images/edit.jpg' %}" alt="Edit Flight">
+                <p>Edit/Update Flight</p>
+            </a>
+        </div>
+    </div>
+</body>
+</html>

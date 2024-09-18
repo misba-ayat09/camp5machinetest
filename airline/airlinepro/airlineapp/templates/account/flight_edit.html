@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Flight</title>
+    <link rel="stylesheet" href="{% static 'css/edit.css' %}">
+</head>
+<body>
+    <!-- Header -->
+    <div class="header">
+        <a href="{% url 'admin_dashboard' %}" class="back-btn">Back to Dashboard</a>
+        <h2>Edit Flight</h2>
+    </div>
+
+    <!-- Form Container -->
+    <div class="form-container">
+        <h2>Edit Flight Details</h2>
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Update Flight</button>
+        </form>
+    </div>
+</body>
+</html>

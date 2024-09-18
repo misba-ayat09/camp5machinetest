@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Flight</title>
+    <link rel="stylesheet" href="{% static 'css/search.css' %}">
+</head>
+<body>
+    <!-- Header -->
+    <div class="header">
+        <a href="{% url 'admin_dashboard' %}" class="back-btn">Back to Dashboard</a>
+        <h2>Search Flight</h2>
+    </div>
+
+    <!-- Form Container -->
+    <div class="form-container">
+        <h3>Search Flight by ID</h3>
+        <form method="POST">
+            {% csrf_token %}
+            <label for="flight_id">Flight ID:</label>
+            <input type="text" name="flight_id" id="flight_id" required>
+            <button type="submit">Search</button>
+        </form>
+
+        {% if flight %}
+        <div class="flight-details">
+            <h4>Flight Details</h4>
+            <p><strong>Flight ID:</strong> {{ flight.flight_id }}</p>
+            <p><strong>Departure Airport:</strong> {{ flight.dep_airport }}</p>
+            <p><strong>Arrival Airport:</strong> {{ flight.arr_airport }}</p>
+            <p><strong>Departure Date:</strong> {{ flight.dep_date }}</p>
+            <p><strong>Arrival Date:</strong> {{ flight.arr_date }}</p>
+            <p><strong>Departure Time:</strong> {{ flight.dep_time }}</p>
+            <p><strong>Arrival Time:</strong> {{ flight.arr_time }}</p>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>

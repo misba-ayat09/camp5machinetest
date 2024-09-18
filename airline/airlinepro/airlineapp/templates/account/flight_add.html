@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Flight</title>
+    <link rel="stylesheet" href="{% static 'css/flightadd.css' %}">
+</head>
+<body>
+    <!-- Header -->
+    <div class="header">
+        <a href="{% url 'admin_dashboard' %}" class="back-btn">Back to Dashboard</a>
+        <h2>Add Flight</h2>
+    </div>
+
+    <!-- Form Container -->
+    <div class="form-container">
+        <h2>Add Flight</h2>
+        <form method="POST">
+            {% csrf_token %}
+            <label for="flight_id">Flight ID:</label>
+            <input type="text" name="flight_id" id="flight_id" required><br>
+
+            <label for="dep_airport">Departure Airport:</label>
+            <input type="text" name="dep_airport" id="dep_airport" required><br>
+
+            <label for="dep_date">Departure Date:</label>
+            <input type="date" name="dep_date" id="dep_date" required><br>
+
+            <label for="dep_time">Departure Time:</label>
+            <input type="time" name="dep_time" id="dep_time" required><br>
+
+            <label for="arr_airport">Arrival Airport:</label>
+            <input type="text" name="arr_airport" id="arr_airport" required><br>
+
+            <label for="arr_date">Arrival Date:</label>
+            <input type="date" name="arr_date" id="arr_date" required><br>
+
+            <label for="arr_time">Arrival Time:</label>
+            <input type="time" name="arr_time" id="arr_time" required><br>
+
+            <button type="submit">Add Flight</button>
+        </form>
+    </div>
+</body>
+</html>
